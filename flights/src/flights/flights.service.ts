@@ -17,7 +17,7 @@ export class FlightsService {
   }
 
   async findOne(id: number): Promise<any> {
-    return await this.flightRepository.findOne(id);
+    return await this.flightRepository.findOne({where: {id: id}});
   }
 
   async create(flight: Flight): Promise<any>{
