@@ -13,9 +13,21 @@ export class HomeComponent implements OnInit {
 
  constructor(private flightsService: FlightsService) { }
 
+  flight: Flight = { id: 50, origin: 'constanta', destination: 'mangalia', flightnumber: 7539, depart: '2022-05-23 05:23:12', arrive: '2022-05-23 06:00:00', nonstop: false}
   ngOnInit(): void {
-     this.flightsService.getFlights().subscribe(data => {
+    this.flightsService.getFlights().subscribe(data => {
       this.flights = data;
     })
+    
+    
+  }
+
+  //POST
+  
+  onClick(): void {
+    this.flightsService.postFlight(this.flight).subscribe(data => {
+      this.flight = data;
+    });
+    window.location.reload();
   }
 }

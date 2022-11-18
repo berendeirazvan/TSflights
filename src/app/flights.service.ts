@@ -14,8 +14,8 @@ export class FlightsService {
     return this.http.get('http://localhost:3000/flights');
   }
 
-  postFlight(flight: Flight) {
-
+  postFlight(flight: Flight): Observable<any> {
+    return this.http.post('http://localhost:3000/flights', flight);
   }
 
   deleteFlight(id: number) {

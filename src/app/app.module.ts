@@ -7,7 +7,6 @@ import { AdminComponent } from './admin/admin.component';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-//import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
