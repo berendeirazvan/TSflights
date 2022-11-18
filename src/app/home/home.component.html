@@ -26,6 +26,18 @@
             <div class="search_box">
               <button (click)="onClick()">Go</button>
             </div>
+            <div class="search_box">
+              <button (click)="onClickGetByID()"> Search by ID</button>
+            </div>
+            <div *ngFor="let flight of flightByID">
+              TEST
+              {{flight.flightnumber}}
+              {{flight.origin}}
+              {{flight.destination}}
+              {{flight.depart}}
+              {{flight.arrive}}
+              {{flight.nonstop}}
+            </div>
           </div>
           <div class="flight_pane">  
             <div class="flight_headers">
@@ -46,6 +58,7 @@
               <div class="nonstop cell"> {{flight.nonstop}}</div>
             </div>
             <div>
+              
             </div>
             
           </div>

@@ -1,7 +1,8 @@
-import { Body, Controller, Get, Post, Req, Request } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Req, Request } from '@nestjs/common';
 import { FlightsService } from './flights.service';
 import { Flights } from './flights.entity';
 import { Flight } from './flight.model';
+import { __param } from 'tslib';
 
 
 
@@ -21,4 +22,8 @@ export class FlightsController {
         return this.flightService.findAll();
     }
 
+    @Get(':id')
+    async findOne(@Param() param): Promise<Flight> {
+        return this.flightService.findOne(param.id);
+    }
 }

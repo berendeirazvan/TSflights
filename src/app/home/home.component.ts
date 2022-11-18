@@ -10,6 +10,7 @@ import { Flight } from '../flight.model';
 export class HomeComponent implements OnInit {
 
   flights: Flight[] = [];
+  flightByID: Flight[] = []
 
  constructor(private flightsService: FlightsService) { }
 
@@ -18,16 +19,19 @@ export class HomeComponent implements OnInit {
     this.flightsService.getFlights().subscribe(data => {
       this.flights = data;
     })
-    
-    
   }
 
   //POST
   
   onClick(): void {
-    this.flightsService.postFlight(this.flight).subscribe(data => {
-      this.flight = data;
-    });
+    this.flightsService.postFlight(this.flight).subscribe();
     window.location.reload();
+  }
+
+  onClickGetByID(): void {
+    this.flightsService.getFlight(5).subscribe(data => {
+      this.flightByID = data;
+    });
+    
   }
 }

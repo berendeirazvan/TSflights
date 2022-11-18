@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Entity, Repository } from 'typeorm';
 import { Flights } from './flights.entity';
 import { Flight } from './flight.model';
 
@@ -17,7 +17,7 @@ export class FlightsService {
   }
 
   async findOne(id: number): Promise<any> {
-    //return this.flightRepository.findOne(id);
+    return await this.flightRepository.findOne(id);
   }
 
   async create(flight: Flight): Promise<any>{
