@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Entity, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { Flights } from './flights.entity';
 import { Flight } from './flight.model';
 
@@ -20,7 +20,19 @@ export class FlightsService {
     return await this.flightRepository.find({where: {id: id}});
   }
 
-  async create(flight: Flight): Promise<any>{
+  async create(flight: Flight): Promise<any> {
     return await this.flightRepository.save(flight);
+  }
+
+  async query(orig: string, dest: string): Promise<any> {
+    return await this.flightRepository.find({where: {origin: orig, destination: dest}});
+  }
+
+  async patch(flight: Flight): Promise<any> {
+    return await this.flightRepository.update(flight.id, flight);
+  }
+
+  async delete(id: number): Promise<any> {
+    return await this.flightRepository.delete(id);
   }
 }

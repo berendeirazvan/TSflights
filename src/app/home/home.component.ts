@@ -7,6 +7,8 @@ import { Flight } from '../flight.model';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
+
+
 export class HomeComponent implements OnInit {
 
   flights: Flight[] = [];
@@ -29,7 +31,7 @@ export class HomeComponent implements OnInit {
   }
 
   onClickGetByID(): void {
-    this.flightsService.getFlight(5).subscribe(data => {
+    this.flightsService.getFlight(12).subscribe(data => {
       this.flightByID = data;
     });
     

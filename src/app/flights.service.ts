@@ -20,11 +20,17 @@ export class FlightsService {
     return this.http.get(`http://localhost:3000/flights/${id}`);
   }
 
+  //POST FLIGHT
   postFlight(flight: Flight): Observable<any> {
     return this.http.post('http://localhost:3000/flights', flight);
   }
 
   deleteFlight(id: number) {
 
+  }
+
+  //QUERY FLIGHT BY ORIGIN AND DESTINATION
+  queryFlight(orig: string, dest: string): Observable<any> {
+    return this.http.get(`http://localhost:3000/flights/query/${orig}/${dest}`);
   }
 }
