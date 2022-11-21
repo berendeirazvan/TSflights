@@ -15,21 +15,27 @@ export class FlightsService {
     return this.http.get('http://localhost:3000/flights');
   }
 
-  //GET FLIGHT BY ID
+  //GET BY ID
   getFlight(id: number): Observable<any> {
     return this.http.get(`http://localhost:3000/flights/${id}`);
   }
 
-  //POST FLIGHT
+  //POST
   postFlight(flight: Flight): Observable<any> {
     return this.http.post('http://localhost:3000/flights', flight);
   }
 
-  deleteFlight(id: number) {
-
+  //DELETE
+  deleteFlight(id: number): Observable<any> {
+    return this.http.get(`http://localhost:3000/flights/${id}/delete`);
   }
 
-  //QUERY FLIGHT BY ORIGIN AND DESTINATION
+  //UPDATE
+  updateFlight(id: number, flight: Flight): Observable<any> {
+    return this.http.patch(`http://localhost:3000/flights/${id}/update`, flight);
+  }
+
+  //QUERY
   queryFlight(orig: string, dest: string): Observable<any> {
     return this.http.get(`http://localhost:3000/flights/query/${orig}/${dest}`);
   }
