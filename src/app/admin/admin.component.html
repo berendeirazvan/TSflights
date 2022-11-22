@@ -1,1 +1,27 @@
 <p>admin works!</p>
+<table>
+    <tr>
+        <td>Origin</td>
+        <td>Destination</td>
+        <td>Flight #</td>
+        <td>Departure</td>
+        <td>Arrival</td>
+        <td>Non-Stop</td>
+        <td>Update</td>
+        <td>Delete</td>
+    </tr>
+    <tr *ngFor="let flight of flightList; let i=index">
+        <td><input [(ngModel)]="flight.origin">{{flight.origin}}</td>
+        <td><input [(ngModel)]="flight.destination">{{flight.destination}}</td>
+        <td><input [(ngModel)]="flight.flightnumber">{{flight.flightnumber}}</td>
+        <td><input [(ngModel)]="flight.depart">{{flight.depart | date : 'shortDate'}}</td>
+        <td><input [(ngModel)]="flight.arrive">{{flight.arrive | date : 'shortDate'}}</td>
+        <td><select [(ngModel)]="flight.nonstop">
+            <option value="true">true</option>
+            <option value="false">false</option>
+        </select>
+        </td>
+        <td><button (click)="update(flight)"class="update">go</button></td>
+        <td><button (click)="delete(flight)" class="delete">go</button></td>
+    </tr>
+</table>

@@ -35,4 +35,12 @@ export class FlightsService {
   async delete(id: number): Promise<any> {
     return await this.flightRepository.delete(id);
   }
+
+  async getFlightOrigins(): Promise<any> {
+    return this.flightRepository.query('SELECT DISTINCT origin FROM flights');
+  }
+
+  async getFlightDestinations(): Promise<any> {
+    return this.flightRepository.query('SELECT DISTINCT destination FROM flights');
+  }
 }

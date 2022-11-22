@@ -45,8 +45,18 @@ export class FlightsController {
     }
 
     //DELETE
-    @Get(':id/delete')
+    @Delete(':id/delete')
     async delete(@Param('id') id: number): Promise<any> {
         return this.flightService.delete(id);
+    }
+
+    @Get('cities/origins')
+    getOrigins(): Promise<any> {
+        return this.flightService.getFlightOrigins();
+    }
+
+    @Get('cities/destinations')
+    getDestinations(): Promise<any> {
+        return this.flightService.getFlightDestinations();
     }
 }

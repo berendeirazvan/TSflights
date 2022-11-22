@@ -8,61 +8,42 @@
         <div class="container">
           <div class="search_pane"> 
             <div class="search_box">
-              <select>
+              <select [(ngModel)]="selectedOrigin">
                 <option value="" disabled selected>from</option>
-                <option value="nyc" >New York</option>
-                <option value="london" >London</option>
-                <option value="lax" >Los Angeles</option>
+                <option *ngFor="let result of filteredOriginList" value={{result.origin}} > {{result.origin}} </option>
               </select>
             </div>
             <div class="search_box">
-              <select>
+              <select [(ngModel)]="selectedDestination">
                 <option value="" disabled selected>to</option>
-                <option value="nyc" >New York</option>
-                <option value="london" >London</option>
-                <option value="lax" >Los Angeles</option>
-              </select>
+                <option *ngFor="let result of filteredDestinationList" value={{result.destination}} > {{result.destination}} </option>
+              </select>  
             </div>
             <div class="search_box">
-              <button (click)="onClick()">Go</button>
-            </div>
-            <div class="search_box">
-              <button (click)="onClickGetByID()"> Search by ID</button>
-            </div>
-            <div *ngFor="let flight of flightByID">
+              <button (click)="query()">Go</button>
               TEST
-              {{flight.flightnumber}}
-              {{flight.origin}}
-              {{flight.destination}}
-              {{flight.depart}}
-              {{flight.arrive}}
-              {{flight.nonstop}}
             </div>
           </div>
-          <div class="flight_pane">  
-            <div class="flight_headers">
-              <div class="flight_number cell"> Flight # </div>
-              <div class="origin cell"> Origin </div>
-              <div class="destination cell"> Destination </div>
-              <div class="departs cell"> Departs </div>
-              <div class="arrives cell"> Arrives </div>
-              <div class="nonstop cell"> Nonstop </div>
-            </div>
-            
-            <div *ngFor="let flight of flights " class="flight_results">
-              <div class="flight_number cell"> {{flight.flightnumber}}</div>
-              <div class="origin cell">{{flight.origin}}</div>
-              <div class="destination cell">{{flight.destination}}</div>
-              <div class="departs cell"> {{flight.depart | date : 'shortDate' }}</div>
-              <div class="arrives cell"> {{flight.arrive | date : 'shortDate' }}</div>
-              <div class="nonstop cell"> {{flight.nonstop}}</div>
-            </div>
-            <div>
-              
-            </div>
-            
+        <div class="flight_pane">  
+          <div class="flight_headers">
+            <div class="flight_number cell"> Flight # </div>
+            <div class="origin cell"> Origin </div>
+            <div class="destination cell"> Destination </div>
+            <div class="departs cell"> Departs </div>
+            <div class="arrives cell"> Arrives </div>
+            <div class="nonstop cell"> Nonstop </div>
           </div>
+            
+          <div *ngFor="let flight of flights" class="flight_results">
+            <div class="flight_number cell"> {{flight.flightnumber}}</div>
+            <div class="origin cell">{{flight.origin}}</div>
+            <div class="destination cell">{{flight.destination}}</div>
+            <div class="departs cell"> {{flight.depart | date : 'shortDate' }}</div>
+            <div class="arrives cell"> {{flight.arrive | date : 'shortDate' }}</div>
+            <div class="nonstop cell"> {{flight.nonstop}}</div>
+          </div>     
         </div>
       </div>
     </div>
-    </div>
+  </div>
+</div>

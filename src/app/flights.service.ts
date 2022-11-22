@@ -27,7 +27,7 @@ export class FlightsService {
 
   //DELETE
   deleteFlight(id: number): Observable<any> {
-    return this.http.get(`http://localhost:3000/flights/${id}/delete`);
+    return this.http.delete(`http://localhost:3000/flights/${id}/delete`);
   }
 
   //UPDATE
@@ -38,5 +38,13 @@ export class FlightsService {
   //QUERY
   queryFlight(orig: string, dest: string): Observable<any> {
     return this.http.get(`http://localhost:3000/flights/query/${orig}/${dest}`);
+  }
+
+  getAllOrigins(): Observable<any> {
+    return this.http.get('http://localhost:3000/flights/cities/origins');
+  }
+
+  getAllDestinations(): Observable<any> {
+    return this.http.get('http://localhost:3000/flights/cities/destinations');
   }
 }
