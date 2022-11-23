@@ -20,8 +20,6 @@ export class AdminComponent implements OnInit {
   arrive: string;
   nonstop: boolean;
 
-  flightToSend: Flight;
-
   ngOnInit(): void {
     this.flightsService.getFlights().subscribe(data => {
       this.flightList = data;
