@@ -1,4 +1,19 @@
-<p>admin works!</p>
+<table>
+    <tr>
+        <td><input [(ngModel)]="origin" placeholder="Flight origin"></td>
+        <td><input [(ngModel)]="destination" placeholder="Flight destination"></td>
+        <td><input [(ngModel)]="flightnumber" placeholder="Flight #"></td>
+        <td><input [(ngModel)]="depart" placeholder="Depart"></td>
+        <td><input [(ngModel)]="arrive" placeholder="Arrive"></td>
+        <td><select [(ngModel)]="nonstop">
+                <option value="true">true</option>
+                <option value="false">false</option>
+            </select>
+        </td>
+        <button (click)="sendFlight()">Submit</button>
+    </tr>
+</table>
+
 <table>
     <tr>
         <td>Origin</td>
@@ -11,11 +26,11 @@
         <td>Delete</td>
     </tr>
     <tr *ngFor="let flight of flightList; let i=index">
-        <td><input [(ngModel)]="flight.origin">{{flight.origin}}</td>
-        <td><input [(ngModel)]="flight.destination">{{flight.destination}}</td>
-        <td><input [(ngModel)]="flight.flightnumber">{{flight.flightnumber}}</td>
-        <td><input [(ngModel)]="flight.depart">{{flight.depart | date : 'shortDate'}}</td>
-        <td><input [(ngModel)]="flight.arrive">{{flight.arrive | date : 'shortDate'}}</td>
+        <td><input [(ngModel)]="flight.origin"></td>
+        <td><input [(ngModel)]="flight.destination"></td>
+        <td><input [(ngModel)]="flight.flightnumber"></td>
+        <td><input [(ngModel)]="flight.depart"></td>
+        <td><input [(ngModel)]="flight.arrive"></td>
         <td><select [(ngModel)]="flight.nonstop">
             <option value="true">true</option>
             <option value="false">false</option>

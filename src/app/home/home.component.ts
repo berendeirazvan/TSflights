@@ -14,12 +14,6 @@ export class HomeComponent implements OnInit {
   flights: Flight[] = [];
   selectedOrigin: string = '';
   selectedDestination: string = '';
-  origin: string = '';
-  destination: string = '';
-  flightnumber: number = 0;
-  depart: string = '';
-  arrive: string = '';
-  nonstop: boolean = false;
   filteredOriginList: any[] = [];
   filteredDestinationList: any[] = [];
 
@@ -34,21 +28,6 @@ export class HomeComponent implements OnInit {
     this.flightsService.getAllDestinations().subscribe(data => {
       this.filteredDestinationList = data;
     });
-  }
-
-  //POST
-  
-  sendFlight(): void {
-    const flight: Flight = {
-      origin: this.origin,
-      destination: this.destination,
-      flightnumber: this.flightnumber,
-      depart: this.depart,
-      arrive: this.arrive,
-      nonstop: this.nonstop
-
-    }
-    this.flightsService.postFlight(flight).subscribe();
   }
 
   query(): void {
